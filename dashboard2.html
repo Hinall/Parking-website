@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Parking Reservation</title>
+  <style>
+ 
+      #l1
+            {
+                color:rgb(0, 0, 0);
+                font-size:20px;
+                font-weight: bold;
+                text-decoration: underline;
+                /* position: static; */
+                /* margin-top: 200px; */
+
+            }
+
+            .fancy-button 
+            {
+                display: inline-block;
+                padding: 10px 20px;
+               
+                background-color: #ee7b08be;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                font-size: 16px;
+                text-align: center;
+                text-decoration: none;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+            }
+    
+            .fancy-button:hover
+            {
+               background-color: silver;
+            }
+
+            #sel
+            {
+                height: 50px;
+                background-color: silver;
+            }
+    /* CSS styling */
+    body,
+      p {
+    color: #565578;
+    font: 400 1rem/1.625rem "Open Sans", sans-serif;
+}
+
+      h1 {
+    color: #272556;
+    font-weight: 600;
+    font-size: 2.5rem;
+    line-height: 3.25rem;
+    letter-spacing: -0.4px;
+}
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="time"] {
+      width: 100%;
+      padding: 5px;
+      font-size: 16px;
+    }
+
+    .form-group input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .ex-header {
+    padding-top: 9rem;
+    padding-bottom: 5rem;
+    background-color: #fff2dc;
+    text-align: center;
+}
+  </style>
+</head>
+<body>
+<div class=" ex-header">
+  <h1>Parking Area Selection</h1>
+</div>
+<div class="container">
+
+    <label for="area-select" id="l1">Select Area:</label>
+
+    <br><span></span><br>
+    <select id="sel">
+        <option value="" >--------------------------------select----------------------------------</option>
+        
+        <optgroup>
+            <option value="sarkhej-38">sarkhej-38</option>
+
+            <option value="satalight-24">satalight-24</option>
+
+            <option value="santipura-28">santipura-28d</option>
+
+            <option value="sarkhej-42">jodhpur-42</option>
+
+            <option value="naroda-48">naroda-48</option>
+        </optgroup>
+    </select>
+    <br>
+    <span></span><br>
+    <a href="parking.html" class="fancy-button">Final Select</a>
+ 
+</div>
+
+<script>
+    // JavaScript logic
+    function generateBookingNumber() {
+      var parkingSlot = document.getElementById('parkingSlot').value;
+      var vehicleNumber = document.getElementById('vehicleNumber').value;
+      var contact = document.getElementById('contact').value;
+      var arrivalTime = document.getElementById('arrivalTime').value;
+
+      var bookingNumber = parkingSlot.substr(0, 2) + vehicleNumber.substr(0, 2) + contact.substr(0, 2) + arrivalTime.replace(':', '');
+
+      document.getElementById('bookingNumber').value = bookingNumber;
+    }
+  </script>
+</body>
+</html>

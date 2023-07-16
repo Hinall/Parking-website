@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Parking Reservation</title>
+  <style>
+    /* CSS styling */
+    body,
+      p {
+    color: #565578;
+    font: 400 1rem/1.625rem "Open Sans", sans-serif;
+}
+
+      h1 {
+    color: #272556;
+    font-weight: 600;
+    font-size: 2.5rem;
+    line-height: 3.25rem;
+    letter-spacing: -0.4px;
+}
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="time"] {
+      width: 100%;
+      padding: 5px;
+      font-size: 16px;
+    }
+
+    .form-group input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .ex-header {
+    padding-top: 9rem;
+    padding-bottom: 5rem;
+    background-color: #fff2dc;
+    text-align: center;
+}
+  </style>
+</head>
+<body>
+<div class=" ex-header">
+  <h1>Parking Reservation</h1>
+</div>
+<div class="container">
+
+
+  <div class="form-group">
+    <label for="parkingSlot">Parking Slot:</label>
+    <input type="text" id="parkingSlot" required>
+  </div>
+
+  <div class="form-group">
+    <label for="vehicleNumber">Vehicle Number:</label>
+    <input type="text" id="vehicleNumber" required>
+  </div>
+
+  <div class="form-group">
+    <label for="contact">Contact:</label>
+    <input type="text" id="contact" required>
+  </div>
+
+  <div class="form-group">
+    <label for="arrivalTime">Arrival Time:</label>
+    <input type="time" id="arrivalTime" required>
+  </div>
+
+  <div class="form-group">
+    <label for="bookingNumber">Booking Number:</label>
+    <input type="text" id="bookingNumber" readonly>
+  </div>
+
+  <div class="form-group">
+    <form action="payment.html">
+      <input type="submit" value="Confirm Booking" onclick="generateBookingNumber()">
+    </form>
+
+  </div>
+</div>
+
+<script>
+    // JavaScript logic
+    function generateBookingNumber() {
+      var parkingSlot = document.getElementById('parkingSlot').value;
+      var vehicleNumber = document.getElementById('vehicleNumber').value;
+      var contact = document.getElementById('contact').value;
+      var arrivalTime = document.getElementById('arrivalTime').value;
+
+      var bookingNumber = parkingSlot.substr(0, 2) + vehicleNumber.substr(0, 2) + contact.substr(0, 2) + arrivalTime.replace(':', '');
+
+      document.getElementById('bookingNumber').value = bookingNumber;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Parking Payment</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .container {
+      margin-top: 50px;
+    }
+
+    h1 {
+      color: #000;
+    }
+
+    .amount {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .payment-options {
+      margin-bottom: 20px;
+    }
+
+    .pay-button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .pay-button:hover {
+      background-color: #45a049;
+    }
+     .ex-header {
+    padding-top: 9rem;
+    padding-bottom: 5rem;
+    background-color: #fff2dc;
+    text-align: center;
+}
+  </style>
+</head>
+<body>
+<div class=" ex-header">
+  <h1>Parking Payment</h1>
+</div>
+<div class="container">
+
+  <div class="amount">Amount: Rs.10.00</div>
+  <div class="payment-options">
+    <label for="payment-method">Payment Method:</label>
+    <select id="payment-method">
+      <option value="credit-card">Credit Card</option>
+      <option value="Gpay">Gpay</option>
+      <option value="paytm">paytm</option>
+    </select>
+  </div>
+  <button class="pay-button">Pay</button>
+</div>
+
+<script>
+    document.querySelector('.pay-button').addEventListener('click', function() {
+      var paymentMethod = document.querySelector('#payment-method').value;
+      var amount = 10.00; // Replace with actual amount calculation logic
+
+      // Replace with your payment processing logic based on the selected payment method
+      switch (paymentMethod) {
+        case 'credit-card':
+          alert('Processing credit card payment of  ₨' + amount);
+          break;
+        case 'Gpay':
+          alert('Processing PayPal payment of  ₨' + amount);
+          break;
+        case 'paytm':
+          alert('Processing Apple Pay payment of  ₨' + amount);
+          break;
+        default:
+          alert('Invalid payment method');
+          break;
+      }
+    });
+  </script>
+</body>
+</html>
